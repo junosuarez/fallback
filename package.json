@@ -1,0 +1,25 @@
+{
+  "name": "fallback",
+  "version": "1.0.0",
+  "description": "retry a function with a series of arguments until one works",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jden/fallback.git"
+  },
+  "scripts": {
+    "test": "node test/test"
+  },
+  "keywords": [
+    "fallback",
+    "retry",
+    "control",
+    "flow"
+  ],
+  "author": "jden <jason@denizac.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "request": "~2.12.0",
+    "tape": "~0.1.5"
+  }
+}
