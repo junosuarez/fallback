@@ -31,6 +31,7 @@ module.exports = function fallback(array, iteratorFunction, outerCallback) {
 function forEachSerial(array, iterator, callback) {
   if (!array.length) {
     callback()
+    return
   }
   var arr = array.slice()
   var next = arr.shift()
