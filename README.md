@@ -2,33 +2,35 @@
 retry a function with a series of arguments until one works
 
 ## usage
-    // run this in the repo: `npm install; node sample.js`
-    // test a list of servers for a response
-    var fallback = require('fallback')
-    var request = require('request')
+```js
+// run this in the repo: `npm install; node sample.js`
+// test a list of servers for a response
+var fallback = require('fallback')
+var request = require('request')
 
-    var servers = ['http://foo.baz', 'http://google.com', 'http://fail']
+var servers = ['http://foo.baz', 'http://google.com', 'http://fail']
 
-    fallback(servers, function (server, callback) {
-      console.log('trying server at ' + server)
-      request(server, function (err, response) {
-        if (err || response.statusCode >= 400) {
-          // try the next server
-          return callback()
-        }
-        callback(null, response.statusCode)
-      })
-    }, function (err, result, server) {
-      if (err) {
-        console.error(err)
-        process.exit(1)
-      }
-      if (result) {
-        console.log('server ' + server + ' returned: ' + result)
-      } else {
-        console.log('no servers returned successfully')
-      }
-    })
+fallback(servers, function (server, callback) {
+  console.log('trying server at ' + server)
+  request(server, function (err, response) {
+    if (err || response.statusCode >= 400) {
+      // try the next server
+      return callback()
+    }
+    callback(null, response.statusCode)
+  })
+}, function (err, result, server) {
+  if (err) {
+    console.error(err)
+    process.exit(1)
+  }
+  if (result) {
+    console.log('server ' + server + ' returned: ' + result)
+  } else {
+    console.log('no servers returned successfully')
+  }
+})
+```
 
 returns
 
@@ -38,12 +40,12 @@ returns
 
 ## API
 
-    fallback: (array: Array, iteratorFunction: IteratorFunction, outerCallback: OuterCallback) => void
+`fallback: (array: Array, iteratorFunction: IteratorFunction, outerCallback: OuterCallback) => void`
 
 Call `fallback` with an array of alternative values to be used as arguments on
 `iteratorFunction`.
 
-    IteratorFunction: (arrayItem, callback: (err: Error, result) => void) => void
+`IteratorFunction: (arrayItem, callback: (err: Error, result) => void) => void`
 
 `iteratorFunction` is an async function of
 `function (arrayItem, callback)`, where `callback` is a normal node-style
@@ -56,7 +58,7 @@ should be invoked with a `null` error and an `undefined` or `false` value for
 succeeded (and therefore further fallbacks should not be tried), and there
 was no result value".
 
-  OuterCallback: (err: Error, result, arrayItem, array: Array) => void
+`OuterCallback: (err: Error, result, arrayItem, array: Array) => void`
 
 In `outerCallback`, there are three possible return states:
 `err` is not undefined: there was an unrecoverable error when executing the
