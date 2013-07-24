@@ -82,7 +82,12 @@ with npm
 
     $ npm install fallback
 
+## contributors
+
+- jden <jason@denizac.org>
+- Nathan Peck <nathan@storydesk.com>
+
 ## license
 MIT
-(c) 2012 jden - Jason Denizac <jason@denizac.org
+(c) MMXIII jden - Jason Denizac <jason@denizac.org>
 http://jden.mit-license.org/2012

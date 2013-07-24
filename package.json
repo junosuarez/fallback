@@ -17,6 +17,7 @@
     "flow"
   ],
   "author": "jden <jason@denizac.org>",
+  "contributors": ["jden <jason@denizac.org>", "Nathan Peck <nathan@storydesk.com>"],
   "license": "MIT",
   "devDependencies": {
     "request": "~2.12.0",
