@@ -1,6 +1,6 @@
 {
   "name": "fallback",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "retry a function with a series of arguments until one works",
   "main": "index.js",
   "repository": {
